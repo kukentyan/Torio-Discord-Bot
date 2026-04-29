@@ -51,6 +51,12 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_ready() -> None:
     await bot.tree.sync(guild=discord.Object(id=GUILD_ID))
+
+    await bot.change_presence(
+        status=discord.Status.do_not_disturb,
+        activity=discord.Game(name="/download")
+    )
+
     print(f"Logged in as {bot.user}")
 
 
