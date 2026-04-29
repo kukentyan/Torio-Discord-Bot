@@ -5,8 +5,11 @@ import os
 import time
 
 TOKEN = os.getenv("TOKEN")
-GUILD_ID = 1447408228798304359
-ALLOWED_CHANNEL_ID = 1478624166126026813
+GUILD_ID = os.getenv("GUILD_ID")
+ALLOWED_CHANNEL_ID = os.getenv("ALLOWED_CHANNEL_ID")
+TORIOLOGO = os.getenv("TORIOLOGO")
+SERVERBOOST = os.getenv("SERVERBOOST")
+BOTCHANNELID = os.getenv("BOTCHANNELID")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -20,9 +23,9 @@ global_cooldown = commands.CooldownMapping.from_cooldown(
 
 @bot.check
 async def global_checks(ctx):
-    if ctx.channel.id != ALLOWED_CHANNEL_ID:
+    if ctx.channel.id != int(ALLOWED_CHANNEL_ID):
         await ctx.send(
-            "Use commands in the bot channel only.\n<#1478624166126026813>",
+            f"Use commands in the bot channel only.\n{BOTCHANNELID}",
             ephemeral=True
         )
         return False
@@ -64,7 +67,7 @@ async def boosters(ctx):
     booster_list = guild.premium_subscribers
 
     embed = discord.Embed(
-        title="<a:ServerBoost:1483456396371427369> Server Boosters <a:ServerBoost:1483456396371427369>",
+        title=f"{SERVERBOOST} Server Boosters {SERVERBOOST}",
         color=0x9B59B6
     )
 
@@ -276,7 +279,7 @@ async def invite(ctx):
 @app_commands.guilds(discord.Object(id=GUILD_ID))
 async def download(ctx):
     embed = discord.Embed(
-        title="Download Torio Client<:TorioLogo:1483456665222123530>",
+        title=f"Download Torio Client{TORIOLOGO}",
         description="Click the link below to download the latest release of the Torio Client.",
         color=0x5865F2
     )
