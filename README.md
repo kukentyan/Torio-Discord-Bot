@@ -143,4 +143,4 @@ Built for private guild/server usage.
 # License
 
 **MIT License**\
-#[View License](https://github.com/kukentyan/Torio-Discord-Bot/blob/main/LICENSE)
+# [View License](https://github.com/kukentyan/Torio-Discord-Bot/blob/main/LICENSE)
