@@ -308,22 +308,24 @@ async def version(ctx):
 
 @bot.event
 async def on_member_join(member):
-    
+
     channel = bot.get_channel(int(WELCOME_CHANNEL_ID))
 
     if channel is None:
         return
-    
-    embed = discord.Embed(
-    )
-    embed.set_thumbnail(url=member.display_avatar.url)
 
-    embed.add_field(
-        name="welcome {member.mention}",
-        inline=True
+    embed = discord.Embed(
+        description=f"Welcome {member.mention}!",
+        color=0xFF73FA
+    )
+
+    embed.set_author(
+        name=member.display_name,
+        icon_url=member.display_avatar.url
     )
 
     embed.set_footer(text=f"User ID: {member.id}")
-        
+
+    await channel.send(embed=embed)     
 
 bot.run(TOKEN)
