@@ -17,7 +17,7 @@ A custom Discord bot built with **discord.py 2.0.0** featuring hybrid commands, 
 * `/download` — Download the latest Torio Client release
 * `/version` — View all supported Minecraft versions for Torio Client
 
-# Welcome System
+## Welcome System
 
 Automatically sends a welcome message whenever a new member joins the server.
 
@@ -27,14 +27,12 @@ Automatically sends a welcome message whenever a new member joins the server.
 * Clean and minimal Discord-style embed design
 * Configurable welcome channel
 
----
-
 ## Example Welcome Message
-
+```text
 Welcome @User!
 
 User ID: 123456789012345678
-
+```
 ---
 
 # Security / Anti-Spam Systems
