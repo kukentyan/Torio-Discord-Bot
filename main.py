@@ -293,4 +293,16 @@ async def download(ctx):
 
     await ctx.send(embed=embed)
 
+@bot.hybrid_command(name="version", description="Look at what version of Minecraft Torio Client Supports")
+@app_commands.guilds(discord.Object(id=GUILD_ID))
+async def version(ctx):
+    embed = discord.Embed(
+        title="Torio Client — Version Information",
+        description="Here are the supported Minecraft versions for the Torio Client.",
+        color=0x5865F2
+    )
+    embed.add_field(name="Supported Bedrock Versions", value="1.21.130, 1.21.131, 1.21.132, 26.0, 26.1, 26.2, 26.3, 26.10, 26.11, 26.12, 26.13", inline=False)
+
+    await ctx.send(embed=embed)
+
 bot.run(TOKEN)
