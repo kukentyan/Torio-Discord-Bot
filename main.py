@@ -3,6 +3,10 @@ from discord import app_commands
 from discord.ext import commands
 import os
 import time
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = os.getenv("GUILD_ID")
