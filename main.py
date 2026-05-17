@@ -7,6 +7,7 @@ import time
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = os.getenv("GUILD_ID")
 ALLOWED_CHANNEL_ID = os.getenv("ALLOWED_CHANNEL_ID")
+WELCOME_CHANNEL_ID = os.getenv("WELCOME_CHANNEL_ID")
 TORIOLOGO = os.getenv("TORIOLOGO")
 SERVERBOOST = os.getenv("SERVERBOOST")
 BOTCHANNELID = os.getenv("BOTCHANNELID")
@@ -304,5 +305,34 @@ async def version(ctx):
     embed.add_field(name="Supported Bedrock Versions", value="1.21.130, 1.21.131, 1.21.132, 26.0, 26.1, 26.2, 26.3, 26.10, 26.11, 26.12, 26.13", inline=False)
 
     await ctx.send(embed=embed)
+
+@bot.event
+async def on_member_join(member):
+    
+    channel = bot.get_channel(int(WELCOME_CHANNEL_ID))
+
+    if channel is None:
+        return
+    
+    embed = discord.Embed(
+        title=f"Welcome to the Torio Client Server",
+        description=f"welcome {member.mention}!",
+        color=0x5865F2
+    )
+    embed.set_thumbnail(url=member.display_avatar.url)
+
+    embed.add_field(
+        name="Member Count",
+        value=f"{member.guild.member_count}",
+        inline=True
+    )
+
+    embed.set_footer(text=f"User ID: {member.id}")
+
+    await channel.send(
+        content=f"{member.mention}",
+        embed=embed
+    )
+        
 
 bot.run(TOKEN)
