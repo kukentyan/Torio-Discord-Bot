@@ -315,24 +315,15 @@ async def on_member_join(member):
         return
     
     embed = discord.Embed(
-        title=f"Welcome to the Torio Client Server",
-        description=f"welcome {member.mention}!",
-        color=0x5865F2
     )
     embed.set_thumbnail(url=member.display_avatar.url)
 
     embed.add_field(
-        name="Member Count",
-        value=f"{member.guild.member_count}",
+        name="welcome {member.mention}",
         inline=True
     )
 
     embed.set_footer(text=f"User ID: {member.id}")
-
-    await channel.send(
-        content=f"{member.mention}",
-        embed=embed
-    )
         
 
 bot.run(TOKEN)
