@@ -15,7 +15,24 @@ A custom Discord bot built with **discord.py 2.0.0** featuring hybrid commands, 
 * `/features` — Interactive module browser
 * `/invite` — Join the official Torio Client support server
 * `/download` — Download the latest Torio Client release
+* `/version` — View all supported Minecraft versions for Torio Client
 
+## Welcome System
+
+Automatically sends a welcome message whenever a new member joins the server.
+
+* Mentions the joining user
+* Displays the user's profile icon
+* Shows the user's Discord ID
+* Clean and minimal Discord-style embed design
+* Configurable welcome channel
+
+## Example Welcome Message
+```text
+Welcome @User!
+
+User ID: 123456789012345678
+```
 ---
 
 # Security / Anti-Spam Systems
@@ -67,7 +84,7 @@ cd Torio-Client-Bot
 ## Install Dependencies
 
 ```"
-pip install discord.py==2.0.0
+pip install discord.py==2.0.0 python-dotenv==1.2.2
 ```
 
 ---
@@ -80,6 +97,7 @@ Create a `.env` file:
 TOKEN=your_bot_token
 GUILD_ID=your_server_id
 ALLOWED_CHANNEL_ID=your_bot_channel_id
+WELCOME_CHANNEL_ID=your_welcome_channel_id
 BOTCHANNELID=<#your_bot_channel_id>
 TORIOLOGO=<:emoji_name:emoji_id>
 SERVERBOOST=<a:emoji_name:emoji_id>
@@ -103,6 +121,7 @@ python main.py
 /download
 /invite
 /boosters
+/version
 ```
 
 ---
@@ -128,6 +147,7 @@ README.md
 
 ```"
 discord.py==2.0.0
+python-dotenv==1.2.2
 ```
 
 ---
@@ -142,5 +162,5 @@ Built for private guild/server usage.
 
 # License
 
-**MIT License**\
+**MIT License**
 # [View License](https://github.com/kukentyan/Torio-Discord-Bot/blob/main/LICENSE)
