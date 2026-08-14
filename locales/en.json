@@ -1,0 +1,54 @@
+{
+  "features": {
+    "title": "Torio Client — Features",
+    "description": "Select a category from the dropdown menu to view module details.\nOr use `/feature <name>` to search for a specific module.",
+    "cat_visual": "Visual Modules",
+    "cat_combat": "Combat Modules",
+    "cat_movement": "Movement Modules",
+    "cat_utility": "Utility & Settings",
+    "cat_select_ph": "Select a module category...",
+    "mod_select_ph": "Select a module in this category...",
+    "available_mods": "**Available Modules:**",
+    "select_below": "Select a module from the dropdown below for details."
+  },
+  "website": {
+    "title": "Torio Client — Official Website",
+    "description": "Click the link below to visit the official Torio Client website.",
+    "button": "Visit Website"
+  },
+  "rules": {
+    "title": "Torio Client Server — Official Rules",
+    "description": "Please read and follow our community rules to ensure a safe and friendly environment for everyone.",
+    "field_name": "Server Rules",
+    "rules": "1️⃣ **Be respectful to everyone.**\n2️⃣ **No harassment, bullying, or hate speech.**\n3️⃣ **No spamming or excessive self-promotion.**\n4️⃣ **Keep content appropriate—no NSFW or disturbing content.**\n5️⃣ **Follow Discord's Terms of Service.**\n6️⃣ **Do not share personal information.**\n7️⃣ **Listen to staff and follow their instructions.**",
+    "footer": "Thank you for keeping our server safe and enjoyable!"
+  },
+  "download": {
+    "title": "Download Torio Client",
+    "description": "Click the link below to download the latest release of the Torio Client."
+  },
+  "version": {
+    "title": "Torio Client — Version Information",
+    "description": "Here are the supported Minecraft versions for the Torio Client.",
+    "field": "Supported Bedrock Versions"
+  },
+  "boosters": {
+    "title": "Server Boosters",
+    "no_boosters": "There are currently no boosters.",
+    "footer": "Total {count} {word} • Nitro Boost Tier {tier}"
+  },
+  "members": {
+    "title": "Server Member Statistics",
+    "description": "Current member statistics for **{server_name}**.",
+    "total": "Total Members",
+    "humans": "Humans",
+    "bots": "Bots",
+    "online": "Online",
+    "footer": "Torio Client Official Community"
+  },
+  "general": {
+    "not_found": "Module `{module}` not found. Use `/features` to see all modules.",
+    "menu_author_only": "This menu can only be used by the person who ran the command.",
+    "menu_cooldown": "Please wait {wait}s before using the menu again."
+  }
+}

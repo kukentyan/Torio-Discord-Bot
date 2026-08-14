@@ -1,0 +1,54 @@
+{
+  "features": {
+    "title": "Torio Client — 機能一覧",
+    "description": "下のドロップダウンメニューからカテゴリを選択してモジュールの詳細を確認できます。\nまたは `/feature <モジュール名>` で特定のモジュールを検索できます。",
+    "cat_visual": "Visual Modules (ビジュアル)",
+    "cat_combat": "Combat Modules (コンバット)",
+    "cat_movement": "Movement Modules (ムーブメント)",
+    "cat_utility": "Utility & Settings (ユーティリティ & 設定)",
+    "cat_select_ph": "モジュールのカテゴリを選択...",
+    "mod_select_ph": "詳細を見るモジュールを選択...",
+    "available_mods": "**利用可能なモジュール:**",
+    "select_below": "下のドロップダウンからモジュールを選択して詳細を表示できます。"
+  },
+  "website": {
+    "title": "Torio Client — 公式ウェブサイト",
+    "description": "以下のリンクから Torio Client の公式ウェブサイトにアクセスできます。",
+    "button": "ウェブサイトを見る"
+  },
+  "rules": {
+    "title": "Torio Client サーバー — 公式ルール",
+    "description": "みんなが安全で快適に過ごせるよう、以下のコミュニティルールをよく読んで守ってください。",
+    "field_name": "Server Rules",
+    "rules": "1️⃣ **すべての人に対して敬意を払いましょう。**\n2️⃣ **嫌がらせ、いじめ、ヘイトスピーチは禁止です。**\n3️⃣ **スパムや過度な自己宣伝は禁止です。**\n4️⃣ **適切なコンテンツを維持してください（NSFWや不快な内容は禁止）。**\n5️⃣ **Discordの利用規約に従ってください。**\n6️⃣ **個人情報を共有しないでください。**\n7️⃣ **スタッフの指示に従ってください。**",
+    "footer": "サーバーの安全で快適な環境維持にご協力ありがとうございます！"
+  },
+  "download": {
+    "title": "Download Torio Client",
+    "description": "以下のリンクをクリックして、Torio Client の最新リリースをダウンロードしてください。"
+  },
+  "version": {
+    "title": "Torio Client — バージョン情報",
+    "description": "Torio Client がサポートしている Minecraft Bedrock バージョン一覧です。",
+    "field": "対応 Bedrock バージョン"
+  },
+  "boosters": {
+    "title": "Server Boosters",
+    "no_boosters": "現在サーバーブースターはいません。",
+    "footer": "合計 {count} 人のブースター • Nitro Boost Tier {tier}"
+  },
+  "members": {
+    "title": "サーバーメンバー統計",
+    "description": "**{server_name}** の現在のメンバー状況です。",
+    "total": "総メンバー数",
+    "humans": "ユーザー数",
+    "bots": "Bot数",
+    "online": "オンライン人数",
+    "footer": "Torio Client Official Community"
+  },
+  "general": {
+    "not_found": "モジュール `{module}` が見つかりませんでした。`/features` で一覧を確認してください。",
+    "menu_author_only": "このメニューはコマンドを実行した人のみ操作できます。",
+    "menu_cooldown": "メニューの再操作まであと {wait} 秒お待ちください。"
+  }
+}
