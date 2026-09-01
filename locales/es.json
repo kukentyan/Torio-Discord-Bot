@@ -1,0 +1,54 @@
+{
+  "features": {
+    "title": "Torio Client — Características",
+    "description": "Selecciona una categoría en el menú desplegable de abajo para ver los detalles del módulo.\nO usa `/feature <nombre>` para buscar un módulo específico.",
+    "cat_visual": "Módulos Visuales (Visual)",
+    "cat_combat": "Módulos de Combate (Combat)",
+    "cat_movement": "Módulos de Movimiento (Movement)",
+    "cat_utility": "Utilidad y Ajustes (Utility)",
+    "cat_select_ph": "Selecciona una categoría de módulos...",
+    "mod_select_ph": "Selecciona un módulo para ver detalles...",
+    "available_mods": "**Módulos Disponibles:**",
+    "select_below": "Selecciona un módulo en el menú desplegable para más detalles."
+  },
+  "website": {
+    "title": "Torio Client — Sitio Web Oficial",
+    "description": "Haz clic en el enlace de abajo para visitar el sitio web oficial de Torio Client.",
+    "button": "Visitar Sitio Web"
+  },
+  "rules": {
+    "title": "Servidor de Torio Client — Reglas Oficiales",
+    "description": "Por favor, lee y sigue las reglas de nuestra comunidad para garantizar un entorno seguro y agradable para todos.",
+    "field_name": "Reglas del Servidor",
+    "rules": "1️⃣ **Sé respetuoso con todos.**\n2️⃣ **Sin acoso, bullying ni discursos de odio.**\n3️⃣ **Sin spam ni autopromoción excesiva.**\n4️⃣ **Mantén el contenido apropiado — sin NSFW ni contenido perturbador.**\n5️⃣ **Sigue los Términos de Servicio de Discord.**\n6️⃣ **No compartas información personal.**\n7️⃣ **Escucha al personal y sigue sus instrucciones.**",
+    "footer": "¡Gracias por mantener nuestro servidor seguro y agradable!"
+  },
+  "download": {
+    "title": "Descargar Torio Client",
+    "description": "Haz clic en el enlace de abajo para descargar la última versión de Torio Client."
+  },
+  "version": {
+    "title": "Torio Client — Información de Versiones",
+    "description": "Aquí están las versiones de Minecraft Bedrock compatibles con Torio Client.",
+    "field": "Versiones Compatibles de Bedrock"
+  },
+  "boosters": {
+    "title": "Server Boosters",
+    "no_boosters": "Actualmente no hay boosters.",
+    "footer": "Total {count} boosters • Nitro Boost Nivel {tier}"
+  },
+  "members": {
+    "title": "Estadísticas de Miembros del Servidor",
+    "description": "Estadísticas de miembros actuales para **{server_name}**.",
+    "total": "Miembros Totales",
+    "humans": "Usuarios",
+    "bots": "Bots",
+    "online": "En Línea",
+    "footer": "Torio Client Official Community"
+  },
+  "general": {
+    "not_found": "Módulo `{module}` no encontrado. Usa `/features` para ver todos los módulos.",
+    "menu_author_only": "Este menú solo puede ser utilizado por quien ejecutó el comando.",
+    "menu_cooldown": "Por favor espera {wait}s antes de volver a usar el menú."
+  }
+}

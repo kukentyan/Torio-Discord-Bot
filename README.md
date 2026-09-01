@@ -2,7 +2,7 @@
 
 Official Discord bot for the TorioGhost Client community.
 
-A custom Discord bot built with **discord.py 2.0.0** featuring hybrid commands, interactive menus, command restrictions, cooldown systems, and anti-spam protections.
+A custom Discord bot built with **discord.py 2.0.0** featuring hybrid commands, interactive menus, command restrictions, cooldown systems, i18n multi-language support, and anti-spam protections.
 
 ---
 
@@ -12,10 +12,14 @@ A custom Discord bot built with **discord.py 2.0.0** featuring hybrid commands, 
 
 * `/ping` — Check bot latency
 * `/boosters` — Display current server boosters
+* `/members` — Display current server member statistics (Total, Humans, Bots, Online)
 * `/features` — Interactive module browser
+* `/feature <name>` — Search details for a specific client module
 * `/invite` — Join the official Torio Client support server
 * `/download` — Download the latest Torio Client release
 * `/version` — View all supported Minecraft versions for Torio Client
+* `/website` — Get the official Torio Client website link
+* `/rules` — Display server rules
 
 ## Welcome System
 
@@ -27,12 +31,15 @@ Automatically sends a welcome message whenever a new member joins the server.
 * Clean and minimal Discord-style embed design
 * Configurable welcome channel
 
-## Example Welcome Message
-```text
-Welcome @User!
+## Multi-Language Support (i18n)
 
-User ID: 123456789012345678
-```
+Supports automatic language switching based on the user's Discord client language:
+* English (`en`)
+* 日本語 (`ja`)
+* Русский (`ru`)
+* Українська (`uk`)
+* Español (`es`)
+
 ---
 
 # Security / Anti-Spam Systems
@@ -65,10 +72,36 @@ The `/features` menu includes:
 
 ---
 
+# Project Structure
+
+```text
+TorioClientBOT/
+├── cogs/
+│   ├── client_info.py     # /features, /feature, /download, /version
+│   ├── events.py          # on_member_join welcome messages
+│   └── general.py         # /ping, /boosters, /members, /invite, /rules, /website
+├── locales/
+│   ├── en.json
+│   ├── es.json
+│   ├── ja.json
+│   ├── modules.json       # Module definitions & multilingual descriptions
+│   ├── ru.json
+│   └── uk.json
+├── utils/
+│   └── i18n.py            # i18n helper & language detector
+├── .env
+├── main.py                # Bot initialization & Cog loader
+├── README.md
+└── requirements.txt
+```
+
+---
+
 # Built With
 
 * Python 3.10+
 * discord.py 2.0.0
+* python-dotenv 1.2.2
 
 ---
 
@@ -76,15 +109,15 @@ The `/features` menu includes:
 
 ## Clone Repository
 
-```"
+```bash
 git clone https://github.com/Uncle-Awrt/Torio-Client-Bot.git
 cd Torio-Client-Bot
 ```
 
 ## Install Dependencies
 
-```"
-pip install discord.py==2.0.0 python-dotenv==1.2.2
+```bash
+pip install -r requirements.txt
 ```
 
 ---
@@ -93,7 +126,7 @@ pip install discord.py==2.0.0 python-dotenv==1.2.2
 
 Create a `.env` file:
 
-```"
+```env
 TOKEN=your_bot_token
 GUILD_ID=your_server_id
 ALLOWED_CHANNEL_ID=your_bot_channel_id
@@ -107,56 +140,9 @@ SERVERBOOST=<a:emoji_name:emoji_id>
 
 # Running the Bot
 
-```
+```bash
 python main.py
 ```
-
----
-
-# Example Commands
-
-```"
-/ping
-/features
-/download
-/invite
-/boosters
-/version
-```
-
----
-
-# Project Structure
-
-```"
-main.py
-README.md
-.env
-```
-
----
-
-# Recommended Hosting
-
-* Raspberry Pi
-* Local PC
-
----
-
-# requirements.txt
-
-```"
-discord.py==2.0.0
-python-dotenv==1.2.2
-```
-
----
-
-# Notes
-
-This bot uses **Hybrid Commands**, meaning slash commands are supported.
-
-Built for private guild/server usage.
 
 ---
 
