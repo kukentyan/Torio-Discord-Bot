@@ -63,8 +63,11 @@ class GeneralCog(commands.Cog):
     async def members(self, ctx: commands.Context):
         guild = ctx.guild
         if not guild:
-            await ctx.send("This command can only be used in a server.", ephemeral=True)
+            await ctx.send("This command can only be used in a server.", ephemeral=bool(ctx.interaction))
             return
+
+        if ctx.interaction and not ctx.interaction.response.is_done():
+            await ctx.defer()
 
         locale = get_user_locale(ctx)
         t = get_text("members", locale)

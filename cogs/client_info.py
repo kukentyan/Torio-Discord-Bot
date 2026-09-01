@@ -155,6 +155,9 @@ class ClientInfoCog(commands.Cog):
     @commands.hybrid_command(name="features", description="Display all features of Torio Client")
     @app_commands.guilds(discord.Object(id=GUILD_ID))
     async def features(self, ctx: commands.Context):
+        if ctx.interaction and not ctx.interaction.response.is_done():
+            await ctx.defer()
+
         locale = get_user_locale(ctx)
         t = get_text("features", locale)
         modules = get_modules()

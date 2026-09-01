@@ -1,2 +1,4 @@
 discord.py==2.0.0
 python-dotenv==1.2.2
+deep-translator==1.11.4
+langdetect==1.0.9

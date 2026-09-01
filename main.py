@@ -26,7 +26,11 @@ class TorioBot(commands.Bot):
         cogs = [
             "cogs.general",
             "cogs.client_info",
-            "cogs.events"
+            "cogs.events",
+            "cogs.role_panel",
+            "cogs.vc_recruit",
+            "cogs.translate",
+            "cogs.ticket"
         ]
         for cog in cogs:
             try:
@@ -45,11 +49,16 @@ global_cooldown = commands.CooldownMapping.from_cooldown(
 
 @bot.check
 async def global_checks(ctx: commands.Context):
+    if ctx.command and ctx.command.name in [
+        "vbchannel", "grolepannel", "translate", "supportsetup"
+    ]:
+        return True
+
     if ALLOWED_CHANNEL_ID and ctx.channel.id != int(ALLOWED_CHANNEL_ID):
         redirect_msg = f"Use commands in the bot channel only."
         if BOTCHANNELID:
             redirect_msg += f"\n{BOTCHANNELID}"
-        await ctx.send(redirect_msg, ephemeral=True)
+        await ctx.send(redirect_msg, delete_after=5.0)
         return False
 
     bucket = global_cooldown.get_bucket(ctx.message)
@@ -58,7 +67,7 @@ async def global_checks(ctx: commands.Context):
     if retry_after:
         await ctx.send(
             f"Please wait {retry_after:.1f}s before using another command.",
-            ephemeral=True
+            delete_after=5.0
         )
         return False
 
@@ -69,6 +78,14 @@ async def global_checks(ctx: commands.Context):
 async def on_command_error(ctx: commands.Context, error: Exception):
     if isinstance(error, commands.CheckFailure):
         return
+    current_error = error
+    for _ in range(3):
+        if isinstance(current_error, discord.NotFound) and getattr(current_error, "code", None) == 10062:
+            return
+        next_error = getattr(current_error, "original", None)
+        if next_error is None or next_error is current_error:
+            break
+        current_error = next_error
     raise error
 
 
