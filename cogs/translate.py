@@ -24,7 +24,7 @@ LANGUAGE_OPTIONS = [
     ("Russian", "ru"),
     ("Ukrainian", "uk"),
 ]
-TRANSLATION_COOLDOWN = 10
+TRANSLATION_COOLDOWN = 2
 MAX_TRANSLATION_LENGTH = 4000
 SENSITIVE_PATTERNS = (
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----", re.IGNORECASE),
@@ -66,25 +66,51 @@ def split_translation(text: str, chunk_size: int = 1900) -> list[str]:
     return [text[index:index + chunk_size] for index in range(0, len(text), chunk_size)]
 
 
+def _is_error_text(text: str) -> bool:
+    if not text:
+        return True
+    lower = text.lower()
+    error_keywords = [
+        "error 500",
+        "server error",
+        "that's an error",
+        "that’s an error",
+        "please try again later",
+        "<html>",
+        "<!doctype html>",
+    ]
+    return any(keyword in lower for keyword in error_keywords)
+
+
 def translate_text(text: str, target: str) -> str:
+    # 1. Attempt with GoogleTranslator with automatic retries (handles cold-start 500 error)
+    for attempt in range(3):
+        try:
+            translated = GoogleTranslator(source="auto", target=target).translate(text)
+            if translated and not _is_error_text(translated):
+                return translated
+        except Exception:
+            pass
+        if attempt < 2:
+            time.sleep(0.6)
+
+    # 2. Fallback to MyMemory API if Google fails
     try:
-        translated = GoogleTranslator(source="auto", target=target).translate(text)
-        if translated:
-            return translated
+        detected_lang = detect(text)
     except Exception:
-        pass
+        detected_lang = "auto"
 
     url = (
         "https://api.mymemory.translated.net/get?"
-        f"q={quote(text)}&langpair={quote(detect(text))}|{quote(target)}"
+        f"q={quote(text)}&langpair={quote(detected_lang)}|{quote(target)}"
     )
-    request = Request(url, headers={"User-Agent": "TorioClientBOT/1.0"})
+    request = Request(url, headers={"User-Agent": "Mozilla/5.0 (TorioClientBOT/1.0)"})
     with urlopen(request, timeout=10) as response:
         data = json.loads(response.read().decode("utf-8"))
 
     translated = data.get("responseData", {}).get("translatedText")
-    if not translated:
-        raise RuntimeError("Translation provider returned no result")
+    if not translated or _is_error_text(translated):
+        raise RuntimeError("Translation provider returned no result or server error")
     return translated
 
 

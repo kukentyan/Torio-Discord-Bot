@@ -113,8 +113,9 @@ class RolePanel(commands.Cog):
 
     @grolepannel.error
     async def grolepannel_error(self, ctx: commands.Context, error):
+        is_ephemeral = bool(ctx.interaction)
         if isinstance(error, commands.MissingPermissions):
-            await ctx.send("Administrator privileges are required.")
+            await ctx.send("Administrator privileges are required.", ephemeral=is_ephemeral)
         else:
             raise error
 

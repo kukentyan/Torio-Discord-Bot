@@ -49,6 +49,8 @@
   "general": {
     "not_found": "モジュール `{module}` が見つかりませんでした。`/features` で一覧を確認してください。",
     "menu_author_only": "このメニューはコマンドを実行した人のみ操作できます。",
-    "menu_cooldown": "メニューの再操作まであと {wait} 秒お待ちください。"
+    "menu_cooldown": "メニューの再操作まであと {wait} 秒お待ちください。",
+    "command_cooldown": "コマンドの再実行まであと {wait} 秒お待ちください。",
+    "bot_channel_only": "コマンドはBot専用チャンネルでのみ使用できます。"
   }
 }

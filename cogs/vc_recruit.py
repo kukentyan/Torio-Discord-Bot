@@ -249,10 +249,11 @@ class VCRecruit(commands.Cog):
 
     @vbchannel.error
     async def vbchannel_error(self, ctx: commands.Context, error):
+        is_ephemeral = bool(ctx.interaction)
         if isinstance(error, commands.MissingPermissions):
-            await ctx.send("Administrator privileges are required to execute this command.")
+            await ctx.send("Administrator privileges are required to execute this command.", ephemeral=is_ephemeral)
         elif isinstance(error, commands.NoPrivateMessage):
-            await ctx.send("This command can only be used within a server.")
+            await ctx.send("This command can only be used within a server.", ephemeral=is_ephemeral)
         else:
             raise error
 

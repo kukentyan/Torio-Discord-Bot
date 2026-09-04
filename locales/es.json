@@ -49,6 +49,8 @@
   "general": {
     "not_found": "Módulo `{module}` no encontrado. Usa `/features` para ver todos los módulos.",
     "menu_author_only": "Este menú solo puede ser utilizado por quien ejecutó el comando.",
-    "menu_cooldown": "Por favor espera {wait}s antes de volver a usar el menú."
+    "menu_cooldown": "Por favor espera {wait}s antes de volver a usar el menú.",
+    "command_cooldown": "Por favor espera {wait}s antes de volver a usar otro comando.",
+    "bot_channel_only": "Usa los comandos únicamente en el canal de bots."
   }
 }
